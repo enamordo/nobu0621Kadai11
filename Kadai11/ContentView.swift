@@ -8,12 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selectedPrefecture = "未選択"
+    @State private var isModal = false
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            HStack {
+                Text("都道府県")
+                Spacer()
+                Text(selectedPrefecture)
+                Spacer()
+                Button(action: {
+                    isModal = true
+                }, label: {
+                    Text("変更")
+                })
+                .fullScreenCover(
+                    isPresented: $isModal,
+                    content: {
+                        ModalView(
+                            isModal: $isModal,
+                            selectedPrefecture: $selectedPrefecture
+                        )
+                    }
+                )
+            }
+            Spacer()
         }
         .padding()
     }
