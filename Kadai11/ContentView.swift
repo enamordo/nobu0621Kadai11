@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var selectedPrefecture = "未選択"
     @State private var isModal = false
-    
+
     var body: some View {
         VStack {
             HStack {
