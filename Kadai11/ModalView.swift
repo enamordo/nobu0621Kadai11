@@ -15,13 +15,13 @@ struct ModalView: View {
 
     var body: some View {
         NavigationView {
-            List(prefectures.indices, id: \.self) { index in
+            List(prefectures, id: \.self) { prefecture in
                 Button(action: {
-                    selectedPrefecture = prefectures[index]
+                    selectedPrefecture = prefecture
                     isModal = false
                 }, label: {
                     HStack {
-                        Text(prefectures[index])
+                        Text(prefecture)
                         Spacer()
                     }
                 })
